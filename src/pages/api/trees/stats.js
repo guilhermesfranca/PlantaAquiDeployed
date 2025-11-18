@@ -1,5 +1,5 @@
-import connectDB from '../../../lib/mongodb';
-import Tree from '../../../models/Tree';
+import connectDB from '@/lib/mongodb';
+import Tree from '@/models/Tree';
 
 export default async function handler(req, res) {
   try {
