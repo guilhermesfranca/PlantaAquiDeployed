@@ -1,7 +1,7 @@
 require('dotenv').config();
 const connectDB = require('../src/lib/mongodb');
-const Tree = require('../models/Tree');
-const Donation = require('../models/Donation');
+const Tree = require('../src/models/Tree');
+const Donation = require('../src/models/Donation');
 
 const trees = [
   {
