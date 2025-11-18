@@ -4,107 +4,107 @@ import React, { useState } from 'react';
 import { Leaf, ShoppingBag, Coins, Heart, Package, Sprout, Shirt, ArrowLeft } from 'lucide-react';
 
 export default function EcoShop() {
-  const [userCoins, setUserCoins] = useState(5);
+  const [userCoins, setUserCoins] = useState(5000);
   const [cart, setCart] = useState([]);
   const [activeCategory, setActiveCategory] = useState('all');
 
   const categories = [
-    { id: 'all', name: 'Tudo', icon: ShoppingBag },
-    { id: 'seeds', name: 'Sementes', icon: Sprout },
-    { id: 'accessories', name: 'Acessórios', icon: Heart },
-    { id: 'apparel', name: 'Roupa', icon: Shirt },
-    { id: 'tools', name: 'Ferramentas', icon: Package }
+    { id: 'all', name: 'All', icon: ShoppingBag },
+    { id: 'seeds', name: 'Seeds', icon: Sprout },
+    { id: 'accessories', name: 'Accessories', icon: Heart },
+    { id: 'apparel', name: 'Apparel', icon: Shirt },
+    { id: 'tools', name: 'Tools', icon: Package }
   ];
 
   const products = [
     {
       id: 1,
-      name: 'Sementes de Girassol',
+      name: 'Sunflower Seeds',
       category: 'seeds',
       price: 2500,
       image: '🌻',
-      description: 'Pacote com 20 sementes',
+      description: 'Pack with 20 seeds',
       inStock: true
     },
     {
       id: 2,
-      name: 'Kit de Compostagem',
+      name: 'Composting Kit',
       category: 'tools',
       price: 4500,
       image: '♻️',
-      description: 'Kit completo para compostagem caseira',
+      description: 'Complete kit for home composting',
       inStock: true
     },
     {
       id: 3,
-      name: 'T-shirt Eco',
+      name: 'Eco T-shirt',
       category: 'apparel',
       price: 20000,
       image: '👕',
-      description: '100% algodão orgânico',
+      description: '100% organic cotton',
       inStock: true
     },
     {
       id: 4,
-      name: 'Garrafa Reutilizável',
+      name: 'Reusable Bottle',
       category: 'accessories',
       price: 4500,
       image: '🧴',
-      description: 'Aço inoxidável, 750ml',
+      description: 'Stainless steel, 750ml',
       inStock: true
     },
     {
       id: 5,
-      name: 'Sementes de Tomate',
+      name: 'Tomato Seeds',
       category: 'seeds',
       price: 3000,
       image: '🍅',
-      description: 'Variedade orgânica',
+      description: 'Organic variety',
       inStock: true
     },
     {
       id: 6,
-      name: 'Pá de Jardim',
+      name: 'Garden Shovel',
       category: 'tools',
       price: 5000,
       image: '🔨',
-      description: 'Cabo de madeira sustentável',
+      description: 'Sustainable wooden handle',
       inStock: true
     },
     {
       id: 7,
-      name: 'Boné Eco',
+      name: 'Eco Cap',
       category: 'apparel',
       price: 10000,
       image: '🧢',
-      description: 'Material reciclado',
+      description: 'Recycled material',
       inStock: false
     },
     {
       id: 8,
-      name: 'Sacola Reutilizável',
+      name: 'Reusable Bag',
       category: 'accessories',
       price: 15000,
       image: '👜',
-      description: 'Tecido natural resistente',
+      description: 'Durable natural fabric',
       inStock: true
     },
     {
       id: 9,
-      name: 'Sementes de Manjericão',
+      name: 'Basil Seeds',
       category: 'seeds',
       price: 2000,
       image: '🌿',
-      description: 'Perfeito para cozinha',
+      description: 'Perfect for cooking',
       inStock: true
     },
     {
       id: 10,
-      name: 'Regador Sustentável',
+      name: 'Sustainable Watering Can',
       category: 'tools',
       price: 3500,
       image: '💧',
-      description: 'Plástico reciclado',
+      description: 'Recycled plastic',
       inStock: true
     }
   ];
@@ -117,11 +117,11 @@ export default function EcoShop() {
     if (userCoins >= product.price && product.inStock) {
       setUserCoins(userCoins - product.price);
       setCart([...cart, product]);
-      alert(`✅ ${product.name} adquirido com sucesso!`);
+      alert(`✅ ${product.name} successfully purchased!`);
     } else if (!product.inStock) {
-      alert('❌ Produto esgotado');
+      alert('❌ Out of stock');
     } else {
-      alert('❌ Moedas insuficientes');
+      alert('❌ Not enough coins');
     }
   };
 
@@ -138,8 +138,8 @@ export default function EcoShop() {
               <ArrowLeft className="w-5 h-5 text-gray-700" />
             </a>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Loja Ecológica</h1>
-              <p className="text-sm text-gray-600">Troque suas moedas</p>
+              <h1 className="text-2xl font-bold text-gray-900">Eco Shop</h1>
+              <p className="text-sm text-gray-600">Trade your coins</p>
             </div>
           </div>
           
@@ -161,15 +161,15 @@ export default function EcoShop() {
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                 <Leaf className="text-yellow-300" size={20} />
               </div>
-              <h3 className="text-white font-bold text-xl">Plano Verde+</h3>
+              <h3 className="text-white font-bold text-xl">Green+ Plan</h3>
             </div>
             <p className="text-white/90 text-sm mb-4 leading-relaxed">
-              Ganhe 2x mais moedas, acesso a produtos exclusivos, opção de criar eventos e uma "tree package" todos os meses!
+              Earn 2x more coins, access to exclusive products, option to create events, and a monthly “tree package”!
             </p>
             <div className="flex items-center justify-between">
-              <span className="text-white font-bold text-lg">25€/mês</span>
+              <span className="text-white font-bold text-lg">€25/month</span>
               <button className="bg-white text-green-700 px-6 py-2 rounded-full font-bold text-sm shadow-md hover:shadow-xl transition-all hover:scale-105">
-                Ativar Agora
+                Activate Now
               </button>
             </div>
           </div>
@@ -218,7 +218,7 @@ export default function EcoShop() {
                     <span className="font-bold text-amber-700 text-sm">{product.price.toLocaleString("pt-BR")}</span>
                   </div>
                   {!product.inStock && (
-                    <span className="text-xs text-red-600 font-semibold">Esgotado</span>
+                    <span className="text-xs text-red-600 font-semibold">Out of Stock</span>
                   )}
                 </div>
 
@@ -231,7 +231,7 @@ export default function EcoShop() {
                       : 'bg-green-500 text-white hover:bg-green-600 hover:scale-105 shadow-md'
                   }`}
                 >
-                  {!product.inStock ? 'Esgotado' : userCoins < product.price ? 'Sem moedas' : 'Adquirir'}
+                  {!product.inStock ? 'Out of Stock' : userCoins < product.price ? 'Not enough coins' : 'Purchase'}
                 </button>
               </div>
             </div>
@@ -245,9 +245,9 @@ export default function EcoShop() {
               <Coins className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h4 className="font-bold text-gray-900 mb-1">Como ganhar moedas?</h4>
+              <h4 className="font-bold text-gray-900 mb-1">How to earn coins?</h4>
               <p className="text-sm text-gray-700">
-                Plante árvores (+100), complete desafios diários (+50), faça doações (+200) e mantenha sua sequência ativa (+25/dia)!
+                Plant trees (+100), complete daily challenges (+50), make donations (+200), and keep your streak active (+25/day)!
               </p>
             </div>
           </div>

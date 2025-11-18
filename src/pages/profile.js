@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link"; // ✅ Import do Link para navegação no Next.js
+import Link from "next/link"; // ✅ Link import for navigation in Next.js
 import { Coins, Sprout, Droplets, Sun, Leaf } from "lucide-react";
 
 export default function Profile() {
@@ -9,13 +9,13 @@ export default function Profile() {
     coins: 5,
     streak: 7,
     trees: 18,
-    badges: ["Eco Iniciante", "Guardião da Floresta", "Semente de Ouro"],
+    badges: ["Eco Beginner", "Forest Guardian", "Golden Seed"],
   };
 
   const achievements = [
     {
-      name: "Primeira Semente",
-      description: "Plantou sua primeira árvore",
+      name: "First Seed",
+      description: "Planted your first tree",
       icon: Sprout,
       color: "from-green-400 to-green-600",
       bgColor: "bg-green-50",
@@ -23,8 +23,8 @@ export default function Profile() {
       unlocked: true,
     },
     {
-      name: "Guardião da Floresta",
-      description: "10 árvores plantadas",
+      name: "Forest Guardian",
+      description: "10 trees planted",
       icon: Leaf,
       color: "from-emerald-400 to-emerald-600",
       bgColor: "bg-emerald-50",
@@ -32,8 +32,8 @@ export default function Profile() {
       unlocked: true,
     },
     {
-      name: "Chuva de Bênçãos",
-      description: "Regou 50 árvores",
+      name: "Rain of Blessings",
+      description: "Watered 50 trees",
       icon: Droplets,
       color: "from-blue-400 to-blue-600",
       bgColor: "bg-blue-50",
@@ -41,8 +41,8 @@ export default function Profile() {
       unlocked: true,
     },
     {
-      name: "Cultivador Solar",
-      description: "7 dias consecutivos",
+      name: "Solar Cultivator",
+      description: "7-day streak",
       icon: Sun,
       color: "from-yellow-400 to-orange-500",
       bgColor: "bg-yellow-50",
@@ -55,7 +55,7 @@ export default function Profile() {
     <main className="max-w-md mx-auto min-h-screen bg-gradient-to-b from-emerald-50 to-white text-[#1f2937] flex flex-col items-center px-6 py-10 font-sans pb-24">
       {/* Header */}
       <header className="w-full flex items-center justify-between mb-8">
-        <h1 className="text-lg font-semibold text-[#14532d]">Meu Perfil</h1>
+        <h1 className="text-lg font-semibold text-[#14532d]">My Profile</h1>
       </header>
 
       {/* Profile Card */}
@@ -63,7 +63,7 @@ export default function Profile() {
         <div className="w-24 h-24 rounded-full overflow-hidden bg-[#22c55e]/10 flex items-center justify-center mb-4">
           <img
             src="/profile.png"
-            alt="Foto de perfil"
+            alt="Profile photo"
             className="w-full h-full object-cover rounded-full"
           />
         </div>
@@ -75,12 +75,12 @@ export default function Profile() {
       <section className="w-full bg-white rounded-3xl mt-8 p-6 shadow-md grid grid-cols-3 gap-4 text-center">
         <div className="flex flex-col items-center gap-2">
           <span className="text-2xl">🔥</span>
-          <p className="text-xs text-[#15803d] uppercase">Sequência</p>
+          <p className="text-xs text-[#15803d] uppercase">Streak</p>
           <span className="text-lg font-bold text-[#14532d]">{user.streak}</span>
         </div>
         <div className="flex flex-col items-center gap-2">
           <span className="text-2xl">🌳</span>
-          <p className="text-xs text-[#15803d] uppercase">Árvores</p>
+          <p className="text-xs text-[#15803d] uppercase">Trees</p>
           <span className="text-lg font-bold text-[#14532d]">{user.trees}</span>
         </div>
         <div className="flex flex-col items-center gap-2">
@@ -90,10 +90,10 @@ export default function Profile() {
         </div>
       </section>
 
-      {/* Conquistas */}
+      {/* Achievements */}
       <section className="w-full bg-white rounded-3xl mt-8 p-6 shadow-md">
         <div className="mb-6">
-          <h3 className="text-lg font-bold text-gray-800 mb-4">Conquistas</h3>
+          <h3 className="text-lg font-bold text-gray-800 mb-4">Achievements</h3>
           <div className="grid grid-cols-1 gap-3">
             {achievements.map((achievement, index) => {
               const IconComponent = achievement.icon;
@@ -143,14 +143,12 @@ export default function Profile() {
 
       {/* Actions */}
       <section className="w-full mt-8 flex flex-col gap-4">
-        {/* ✅ Botão AboutUs com link */}
+        {/* ✅ About button with link */}
         <Link href="/about">
-          <button className="flex justify-between  text-center items-center bg-gradient-to-r from-[#22c55e] to-[#16a34a] rounded-2xl p-4 text-white font-semibold shadow-lg hover:opacity-90 transition">
-          <span>About</span>
-        </button>
+          <button className="flex justify-between text-center items-center bg-gradient-to-r from-[#22c55e] to-[#16a34a] rounded-2xl p-4 text-white font-semibold shadow-lg hover:opacity-90 transition">
+            <span>About</span>
+          </button>
         </Link>
-
-        
       </section>
     </main>
   );

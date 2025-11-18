@@ -23,17 +23,15 @@ export default function Community() {
     }
   }, [searchParams]);
 
-  // 🔹 Fetch TODOS os eventos do database
+  // 🔹 Fetch all events
   const fetchEvents = async () => {
     try {
       const res = await fetch("/api/events");
       const data = await res.json();
 
       if (Array.isArray(data)) {
-        // 🔹 Todos os eventos para Activity tab
         setPlants(data);
 
-        // 🔹 Apenas eventos do Enzo Valentino para My Plants tab
         const myTrees = data.filter(
           (event) => event.organizerName?.toLowerCase() === "enzo valentino"
         );
@@ -53,7 +51,7 @@ export default function Community() {
     {
       id: 1,
       image:
-        "https://plus.unsplash.com/premium_photo-1681064887741-3da2fd0c5896?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+        "https://plus.unsplash.com/premium_photo-1681064887741-3da2fd0c5896?auto=format&fit=crop&q=80&w=1170",
       name: "Stacy",
       event: "Cleaning the forest",
       time: "6 mins ago",
@@ -96,13 +94,13 @@ export default function Community() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           title: `${formData.species} 🌱`,
-          description: `Nova árvore adicionada em ${formData.location}`,
+          description: `New tree added in ${formData.location}`,
           location: formData.location,
           date: new Date(),
           imageUrl,
           icon: "🌿",
           liked: false,
-          organizerName: "Você",
+          organizerName: "You",
         }),
       });
 
@@ -111,11 +109,11 @@ export default function Community() {
         await fetchEvents();
         setShowForm(false);
       } else {
-        alert(data.message || "Erro ao adicionar árvore.");
+        alert(data.message || "Error adding tree.");
       }
     } catch (error) {
       console.error("❌ Error adding tree:", error);
-      alert("Erro ao adicionar árvore.");
+      alert("Error adding tree.");
     } finally {
       setLoading(false);
     }
@@ -146,7 +144,7 @@ export default function Community() {
     icon: event.icon || "🌱",
     name: event.organizerName || "Enzo Valentino",
     action: `planted ${event.title}`,
-    location: event.location, // <-- ADICIONE ISSO
+    location: event.location,
     time: new Date(event.date).toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
@@ -160,10 +158,10 @@ export default function Community() {
         <div className="flex items-center justify-between mb-4">
           <div className="mb-4">
             <p className="text-sm text-gray-600">
-              Bem vindo <span className="text-green-600 font-bold">Enzo,</span>
+              Welcome <span className="text-green-600 font-bold">Enzo,</span>
             </p>
             <h1 className="text-3xl font-bold text-gray-900">
-              Ajude-nos a salvar a terra
+              Help us save the planet
             </h1>
           </div>
 
@@ -173,7 +171,7 @@ export default function Community() {
               className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full hover:from-green-600 hover:to-emerald-700 transition-all shadow-md hover:shadow-lg"
             >
               <DollarSign className="w-4 h-4" />
-              <span className="text-sm font-semibold">Doar</span>
+              <span className="text-sm font-semibold">Donate</span>
             </a>
 
             <a
@@ -279,7 +277,7 @@ export default function Community() {
           </>
         )}
 
-        {/* ===== FAVORITES TAB ===== */}
+        {/* FAVORITES TAB */}
         {activeTab === "favorites" && (
           <>
             <div className="flex items-center justify-between mb-4">
@@ -356,7 +354,7 @@ export default function Community() {
           </>
         )}
 
-        {/* ===== MY PLANTS SECTION ===== */}
+        {/* MY PLANTS TAB */}
         {activeTab === "my plants" && (
           <>
             <div className="flex items-center justify-between mb-4">
@@ -420,14 +418,14 @@ export default function Community() {
                 />
               ) : (
                 <p className="text-gray-500 text-sm text-center mt-8">
-                  Ainda não plantaste nenhuma árvore. 🌳
+                  You haven't planted any trees yet. 🌳
                 </p>
               )}
             </div>
           </>
         )}
 
-        {/* ===== TODAY SECTION ===== */}
+        {/* TODAY FEED */}
         {activeTab === "activity" && (
           <div className="mb-6 mt-6">
             <div className="flex items-center justify-between mb-4">
@@ -449,7 +447,7 @@ export default function Community() {
                     <div>
                       <p className="text-sm text-gray-900">
                         <span className="font-semibold">{activity.name}</span>{" "}
-                        just {activity.action} em {activity.location}
+                        just {activity.action} in {activity.location}
                       </p>
                       <p className="text-xs text-green-600 flex items-center gap-1 mt-0.5">
                         <span className="w-1.5 h-1.5 bg-green-600 rounded-full"></span>
@@ -464,7 +462,7 @@ export default function Community() {
         )}
       </div>
 
-      {/* ===== ADD TREE MODAL ===== */}
+      {/* ADD TREE MODAL */}
       {showForm && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="relative bg-white rounded-3xl p-6 w-[90%] max-w-lg shadow-2xl">
@@ -479,7 +477,7 @@ export default function Community() {
         </div>
       )}
 
-      {/* ===== NAVBAR ===== */}
+      {/* NAVBAR */}
       <Navbar onPlantClick={() => setShowForm(true)} />
     </div>
   );

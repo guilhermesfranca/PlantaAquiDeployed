@@ -41,12 +41,12 @@ export default function Dashboard() {
   ];
 
   const achievements = [
-    { id: 1, name: "Primeira Árvore", icon: "🌱", unlocked: true },
-    { id: 2, name: "10 Árvores", icon: "🌳", unlocked: true },
-    { id: 3, name: "Semana Verde", icon: "🔥", unlocked: true },
-    { id: 4, name: "Doador", icon: "💚", unlocked: true },
-    { id: 5, name: "50 Árvores", icon: "🏆", unlocked: false },
-    { id: 6, name: "Mês Completo", icon: "⭐", unlocked: false },
+    { id: 1, name: "First Tree", icon: "🌱", unlocked: true },
+    { id: 2, name: "10 Trees", icon: "🌳", unlocked: true },
+    { id: 3, name: "Green Week", icon: "🔥", unlocked: true },
+    { id: 4, name: "Donor", icon: "💚", unlocked: true },
+    { id: 5, name: "50 Trees", icon: "🏆", unlocked: false },
+    { id: 6, name: "Full Month", icon: "⭐", unlocked: false },
   ];
 
   const progress = Math.min(
@@ -67,13 +67,11 @@ export default function Dashboard() {
           >
             <ArrowLeft className="w-5 h-5 text-gray-700" />
           </a>
-          <h1 className="text-xl font-bold text-gray-800">Meu Progresso</h1>
+          <h1 className="text-xl font-bold text-gray-800">My Progress</h1>
           <a
             href="/profile"
             className="flex items-center justify-center w-10 h-10 rounded-full overflow-hidden hover:ring-2 hover:ring-green-500 transition-all"
-          >
-           
-          </a>
+          ></a>
         </div>
 
         {/* Profile Card */}
@@ -92,7 +90,7 @@ export default function Dashboard() {
               </h2>
               <div className="flex items-center gap-2 mt-1">
                 <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                  NÍVEL {currentUser.level}
+                  LEVEL {currentUser.level}
                 </div>
                 <Trophy className="w-4 h-4 text-yellow-500" />
               </div>
@@ -114,10 +112,10 @@ export default function Dashboard() {
             </div>
             <div className="flex items-center justify-between mt-2">
               <span className="text-xs text-gray-500">
-                {Math.round(progress)}% completo
+                {Math.round(progress)}% complete
               </span>
               <span className="text-xs font-semibold text-green-600">
-                +{currentUser.nextLevel - currentUser.xp} XP para nível{" "}
+                +{currentUser.nextLevel - currentUser.xp} XP to level{" "}
                 {currentUser.level + 1}
               </span>
             </div>
@@ -133,10 +131,10 @@ export default function Dashboard() {
               </div>
               <span className="text-3xl font-bold">{stats.trees}</span>
             </div>
-            <p className="text-sm text-white/90">Árvores Plantadas</p>
+            <p className="text-sm text-white/90">Trees Planted</p>
             <div className="flex items-center gap-1 mt-2">
               <TrendingUp className="w-3 h-3 text-white/80" />
-              <span className="text-xs text-white/80">+3 esta semana</span>
+              <span className="text-xs text-white/80">+3 this week</span>
             </div>
           </div>
 
@@ -147,9 +145,9 @@ export default function Dashboard() {
               </div>
               <span className="text-3xl font-bold">{stats.streak}</span>
             </div>
-            <p className="text-sm text-white/90">Dias de Sequência</p>
+            <p className="text-sm text-white/90">Day Streak</p>
             <div className="flex items-center gap-1 mt-2">
-              <span className="text-xs text-white/80">🔥 Continue assim!</span>
+              <span className="text-xs text-white/80">🔥 Keep it up!</span>
             </div>
           </div>
 
@@ -160,7 +158,7 @@ export default function Dashboard() {
               </div>
               <span className="text-3xl font-bold">{stats.donations}</span>
             </div>
-            <p className="text-sm text-white/90">Doações Feitas</p>
+            <p className="text-sm text-white/90">Donations Made</p>
             <div className="flex items-center gap-1 mt-2">
               <span className="text-xs text-white/80">€45 total</span>
             </div>
@@ -173,10 +171,10 @@ export default function Dashboard() {
               </div>
               <span className="text-3xl font-bold">{stats.co2Saved}</span>
             </div>
-            <p className="text-sm text-white/90">kg CO₂ Economizado</p>
+            <p className="text-sm text-white/90">kg CO₂ Saved</p>
             <div className="flex items-center gap-1 mt-2">
               <span className="text-xs text-white/80">
-                Equivalente a 12 árvores
+                Equivalent to 12 trees
               </span>
             </div>
           </div>
@@ -187,7 +185,7 @@ export default function Dashboard() {
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2">
               <Award className="w-5 h-5 text-yellow-500" />
-              Conquistas
+              Achievements
             </h3>
             <span className="text-sm text-gray-500">
               {achievements.filter((a) => a.unlocked).length}/
@@ -218,7 +216,7 @@ export default function Dashboard() {
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2">
               <Trophy className="w-5 h-5 text-yellow-500" />
-              Ranking Verde
+              Green Ranking
             </h3>
             <span className="text-sm font-semibold text-green-600">
               #{currentUser.position}
@@ -340,7 +338,7 @@ export default function Dashboard() {
                 <div className="flex-1">
                   <p className="font-semibold text-gray-800">{user.name}</p>
                   {user.isCurrentUser && (
-                    <p className="text-xs text-green-600 font-medium">Você</p>
+                    <p className="text-xs text-green-600 font-medium">You</p>
                   )}
                 </div>
                 <span className="text-sm font-semibold text-gray-600">
@@ -358,9 +356,9 @@ export default function Dashboard() {
               <span className="text-3xl">🎯</span>
             </div>
             <div className="flex-1">
-              <h4 className="font-bold text-lg mb-1">Próximo Objetivo</h4>
+              <h4 className="font-bold text-lg mb-1">Next Goal</h4>
               <p className="text-sm text-white/90">
-                Plante mais 7 árvores para desbloquear "Guardião da Floresta" 🏆
+                Plant 7 more trees to unlock "Forest Guardian" 🏆
               </p>
             </div>
           </div>

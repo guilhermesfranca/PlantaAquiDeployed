@@ -10,10 +10,10 @@ export default function DonatePage() {
   const donationAmounts = [5, 10, 25, 50, 100];
 
   const impacts = [
-    { icon: Sprout, amount: 5, text: '1 árvore plantada' },
-    { icon: Sprout, amount: 10, text: '3 árvores plantadas' },
-    { icon: Users, amount: 25, text: '10 árvores + workshop comunitário' },
-    { icon: Globe, amount: 50, text: '25 árvores + projeto de reflorestação' },
+    { icon: Sprout, amount: 5, text: '1 tree planted' },
+    { icon: Sprout, amount: 10, text: '3 trees planted' },
+    { icon: Users, amount: 25, text: '10 trees + community workshop' },
+    { icon: Globe, amount: 50, text: '25 trees + reforestation project' },
   ];
 
   const handleDonate = () => {
@@ -50,7 +50,7 @@ export default function DonatePage() {
           >
             <ArrowLeft className="w-5 h-5 text-gray-700" />
           </a>
-          <h1 className="text-2xl font-bold text-gray-900">Faça uma Doação</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Make a Donation</h1>
         </div>
 
         {/* Hero Card */}
@@ -61,10 +61,10 @@ export default function DonatePage() {
             </div>
           </div>
           <h2 className="text-xl font-bold text-center mb-2">
-            Ajude a plantar o futuro
+            Help plant the future
           </h2>
           <p className="text-sm text-center text-white/90">
-            Cada doação planta árvores e ajuda comunidades a criar um planeta mais verde
+            Each donation plants trees and helps communities build a greener planet
           </p>
         </div>
 
@@ -78,7 +78,7 @@ export default function DonatePage() {
                 : 'text-gray-600 hover:bg-gray-50'
             }`}
           >
-            Doação Única
+            One-Time Donation
           </button>
           <button
             onClick={() => setIsMonthly(true)}
@@ -88,14 +88,14 @@ export default function DonatePage() {
                 : 'text-gray-600 hover:bg-gray-50'
             }`}
           >
-            Mensal
+            Monthly
           </button>
         </div>
 
         {/* Amount Selection */}
         <div className="bg-white rounded-2xl p-6 mb-6 shadow-sm">
           <h3 className="text-lg font-bold text-gray-900 mb-4">
-            Escolha o valor
+            Choose an amount
           </h3>
           <div className="grid grid-cols-3 gap-3 mb-4">
             {donationAmounts.map((amount) => (
@@ -122,7 +122,7 @@ export default function DonatePage() {
             </span>
             <input
               type="number"
-              placeholder="Outro valor"
+              placeholder="Other amount"
               value={customAmount}
               onChange={(e) => {
                 setCustomAmount(e.target.value);
@@ -142,7 +142,7 @@ export default function DonatePage() {
               </div>
               <div className="flex-1">
                 <p className="text-sm text-green-700 font-medium mb-1">
-                  Seu impacto
+                  Your impact
                 </p>
                 <p className="text-lg font-bold text-green-900">
                   {currentImpact.text}
@@ -162,22 +162,22 @@ export default function DonatePage() {
               : 'bg-gray-200 text-gray-400 cursor-not-allowed'
           }`}
         >
-          {isMonthly ? 'Doar Mensalmente' : 'Doar Agora'}
+          {isMonthly ? 'Donate Monthly' : 'Donate Now'}
         </button>
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4 mb-6">
           <div className="bg-white rounded-2xl p-4 text-center shadow-sm">
             <p className="text-2xl font-bold text-green-600 mb-1">1,247</p>
-            <p className="text-xs text-gray-600">Árvores plantadas</p>
+            <p className="text-xs text-gray-600">Trees planted</p>
           </div>
           <div className="bg-white rounded-2xl p-4 text-center shadow-sm">
             <p className="text-2xl font-bold text-green-600 mb-1">€8,432</p>
-            <p className="text-xs text-gray-600">Total arrecadado</p>
+            <p className="text-xs text-gray-600">Total raised</p>
           </div>
           <div className="bg-white rounded-2xl p-4 text-center shadow-sm">
             <p className="text-2xl font-bold text-green-600 mb-1">342</p>
-            <p className="text-xs text-gray-600">Doadores</p>
+            <p className="text-xs text-gray-600">Donors</p>
           </div>
         </div>
 
@@ -190,10 +190,10 @@ export default function DonatePage() {
               </div>
               <div>
                 <h4 className="font-bold text-gray-900 mb-1">
-                  100% do valor vai para as árvores
+                  100% of the amount goes to the trees
                 </h4>
                 <p className="text-sm text-gray-600">
-                  Cada euro é usado para plantar e cuidar de árvores
+                  Every euro is used to plant and care for trees
                 </p>
               </div>
             </div>
@@ -206,10 +206,10 @@ export default function DonatePage() {
               </div>
               <div>
                 <h4 className="font-bold text-gray-900 mb-1">
-                  Apoio às comunidades locais
+                  Support for local communities
                 </h4>
                 <p className="text-sm text-gray-600">
-                  Criamos empregos e educamos sobre sustentabilidade
+                  We create jobs and educate about sustainability
                 </p>
               </div>
             </div>
@@ -226,13 +226,13 @@ export default function DonatePage() {
                 <Check className="w-10 h-10 text-white" strokeWidth={3} />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Obrigado! 🌱
+                Thank you! 🌱
               </h3>
               <p className="text-gray-600 mb-4">
-                Sua doação de €{selectedAmount || customAmount} vai ajudar a plantar mais árvores!
+                Your donation of €{selectedAmount || customAmount} will help plant more trees!
               </p>
               <p className="text-sm text-green-600 font-semibold">
-                Você ganhou +{Math.floor((selectedAmount || parseFloat(customAmount)) * 10)} XP
+                You earned +{Math.floor((selectedAmount || parseFloat(customAmount)) * 10)} XP
               </p>
             </div>
           </div>
