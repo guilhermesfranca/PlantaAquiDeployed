@@ -146,6 +146,7 @@ export default function Community() {
     icon: event.icon || "🌱",
     name: event.organizerName || "Enzo Valentino",
     action: `planted ${event.title}`,
+    location: event.location, // <-- ADICIONE ISSO
     time: new Date(event.date).toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
@@ -158,7 +159,9 @@ export default function Community() {
       <div className="relative px-6 pt-6 pb-4 rounded-b-3xl shadow-sm bg-white">
         <div className="flex items-center justify-between mb-4">
           <div className="mb-4">
-            <p className="text-sm text-gray-600">Bem vindo <span className="text-green-600 font-bold">Enzo,</span></p>
+            <p className="text-sm text-gray-600">
+              Bem vindo <span className="text-green-600 font-bold">Enzo,</span>
+            </p>
             <h1 className="text-3xl font-bold text-gray-900">
               Ajude-nos a salvar a terra
             </h1>
@@ -172,7 +175,7 @@ export default function Community() {
               <DollarSign className="w-4 h-4" />
               <span className="text-sm font-semibold">Doar</span>
             </a>
-            
+
             <a
               href="/profile"
               className="flex items-center justify-center w-12 h-12 rounded-full overflow-hidden hover:ring-2 hover:ring-green-500 transition-all"
@@ -207,74 +210,74 @@ export default function Community() {
       <div className="px-6 mt-6">
         {/* Activity Tab */}
         {activeTab === "activity" && (
-  <>
-    <div className="flex items-center justify-between mb-4">
-      <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
-        Latest Events
-      </h2>
-      <div className="flex gap-2">
-        <button
-          onClick={() => setViewMode("grid")}
-          className={`p-2 rounded-lg transition-colors ${
-            viewMode === "grid"
-              ? "bg-green-100 text-green-600"
-              : "text-gray-400 hover:bg-gray-100"
-          }`}
-        >
-          <svg
-            className="w-4 h-4"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-          >
-            <rect x="0" y="0" width="6" height="6" rx="1" />
-            <rect x="10" y="0" width="6" height="6" rx="1" />
-            <rect x="0" y="10" width="6" height="6" rx="1" />
-            <rect x="10" y="10" width="6" height="6" rx="1" />
-          </svg>
-        </button>
-        <button
-          onClick={() => setViewMode("list")}
-          className={`p-2 rounded-lg transition-colors ${
-            viewMode === "list"
-              ? "bg-green-100 text-green-600"
-              : "text-gray-400 hover:bg-gray-100"
-          }`}
-        >
-          <svg
-            className="w-4 h-4"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-          >
-            <rect x="0" y="2" width="16" height="2" rx="1" />
-            <rect x="0" y="7" width="16" height="2" rx="1" />
-            <rect x="0" y="12" width="16" height="2" rx="1" />
-          </svg>
-        </button>
-      </div>
-    </div>
+          <>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
+                Latest Events
+              </h2>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setViewMode("grid")}
+                  className={`p-2 rounded-lg transition-colors ${
+                    viewMode === "grid"
+                      ? "bg-green-100 text-green-600"
+                      : "text-gray-400 hover:bg-gray-100"
+                  }`}
+                >
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                  >
+                    <rect x="0" y="0" width="6" height="6" rx="1" />
+                    <rect x="10" y="0" width="6" height="6" rx="1" />
+                    <rect x="0" y="10" width="6" height="6" rx="1" />
+                    <rect x="10" y="10" width="6" height="6" rx="1" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => setViewMode("list")}
+                  className={`p-2 rounded-lg transition-colors ${
+                    viewMode === "list"
+                      ? "bg-green-100 text-green-600"
+                      : "text-gray-400 hover:bg-gray-100"
+                  }`}
+                >
+                  <svg
+                    className="w-4 h-4"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                  >
+                    <rect x="0" y="2" width="16" height="2" rx="1" />
+                    <rect x="0" y="7" width="16" height="2" rx="1" />
+                    <rect x="0" y="12" width="16" height="2" rx="1" />
+                  </svg>
+                </button>
+              </div>
+            </div>
 
-    <div className="h-96 overflow-y-auto hide-scrollbar">
-      {events.length > 0 ? (
-        <PlantCardGrid
-          recentPlants={events.map((p) => ({
-            id: p.id,
-            image: p.image,
-            name: p.name,
-            tree: p.event,
-            time: p.time,
-            liked: p.liked,
-          }))}
-          viewMode={viewMode}
-          toggleLike={toggleLike}
-        />
-      ) : (
-        <p className="text-gray-500 text-sm text-center mt-8">
-          No events yet. 🌿 Be the first to plant a tree!
-        </p>
-      )}
-    </div>
-  </>
-)}
+            <div className="h-96 overflow-y-auto hide-scrollbar">
+              {events.length > 0 ? (
+                <PlantCardGrid
+                  recentPlants={events.map((p) => ({
+                    id: p.id,
+                    image: p.image,
+                    name: p.name,
+                    tree: p.event,
+                    time: p.time,
+                    liked: p.liked,
+                  }))}
+                  viewMode={viewMode}
+                  toggleLike={toggleLike}
+                />
+              ) : (
+                <p className="text-gray-500 text-sm text-center mt-8">
+                  No events yet. 🌿 Be the first to plant a tree!
+                </p>
+              )}
+            </div>
+          </>
+        )}
 
         {/* ===== FAVORITES TAB ===== */}
         {activeTab === "favorites" && (
@@ -429,7 +432,7 @@ export default function Community() {
           <div className="mb-6 mt-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
-                Hoje
+                Feed
               </h2>
             </div>
 
@@ -446,7 +449,7 @@ export default function Community() {
                     <div>
                       <p className="text-sm text-gray-900">
                         <span className="font-semibold">{activity.name}</span>{" "}
-                        {activity.action}
+                        just {activity.action} em {activity.location}
                       </p>
                       <p className="text-xs text-green-600 flex items-center gap-1 mt-0.5">
                         <span className="w-1.5 h-1.5 bg-green-600 rounded-full"></span>
