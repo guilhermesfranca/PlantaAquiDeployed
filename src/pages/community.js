@@ -95,14 +95,14 @@ export default function Community() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          title: `Plantação de ${formData.species} 🌱`,
+          title: `${formData.species} 🌱`,
           description: `Nova árvore adicionada em ${formData.location}`,
           location: formData.location,
           date: new Date(),
           imageUrl,
           icon: "🌿",
           liked: false,
-          organizerName: "Enzo Valentino",
+          organizerName: "Você",
         }),
       });
 
